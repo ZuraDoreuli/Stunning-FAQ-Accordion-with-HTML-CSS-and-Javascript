@@ -1,0 +1,102 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+*,
+*::before,
+*::after {
+  margin: 0;
+	padding: 0;
+  box-sizing: border-box;
+}
+.accordion-list {
+  max-width: 600px;
+  margin: 200px auto 0;
+  list-style: none;
+  color: #353535;
+  font-family: 'Roboto', sans-serif;
+}
+.accordion-item {
+  margin-bottom: 20px;
+  cursor: pointer;
+}
+.accordion-item__title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  border: 1px solid #353535;
+  border-left: 3px solid #353535;
+  border-right: 3px solid #353535;
+  border-radius: 10px;
+  transition: all 0.5s ease-in-out;
+}
+.accordion-item__title.active {
+  border-radius: 10px 10px 0 0;
+}
+.accordion-item__title h2 {
+  font-size: 22px;
+  text-shadow: 2px 2px 4px #0000004d;
+}
+.accordion-item__title span {
+  display: inline-flex;
+  position: relative;
+  width: 40px;
+  height: 40px;
+  transform: rotate(0);
+  transition: all 0.5s ease-in-out;
+}
+.accordion-item__title span::before {
+  content: '';
+  position: absolute;
+  width: 50%;
+  height: 2px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: #3c40434d 0 1px 2px 0, #3c404326 0 1px 3px 1px;
+  background-color: #555555;
+  transition: all 0.5s ease-in-out;
+}
+.accordion-item__title span::after {
+  content: '';
+  position: absolute;
+  width: 2px;
+  height: 50%;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: #3c40434d 0 1px 2px 0, #3c404326 0 1px 3px 1px;
+  background-color: #555555;
+  transition: all 0.5s ease-in-out;
+}
+.accordion-item:hover .accordion-item__title span::before {
+  background-color: #353535;
+  transform: translate(-50%, -50%) scale(1.1);
+}
+.accordion-item:hover .accordion-item__title span::after {
+  background-color: #353535;
+  transform: translate(-50%, -50%) scale(1.1);
+}
+.accordion-item__title.active span {
+  transform: rotate(225deg);
+}
+.accordion-item__content {
+  color: #000;
+  line-height: 1.4;
+  padding: 0 20px;
+  box-sizing: content-box;
+  border: 1px solid #353535;
+  border-left: 3px solid #353535;
+  border-right: 3px solid #353535;
+  border-radius: 0 0 10px 10px;
+  border-top: none;
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.5s ease-in-out;
+}
+.accordion-item__content.active {
+  padding: 20px;
+  opacity: 1;
+  visibility: visible;
+  transition: all 0.5s ease-in-out;
+}
